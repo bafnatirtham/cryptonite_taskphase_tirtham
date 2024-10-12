@@ -70,10 +70,44 @@ In this challenge, we had to delete a file using the `rm` command and then run `
 
 ## 9. An Epic Filesystem Quest
 here we have to use the commands `cd`, `ls` and `cat` to find the hidden clues and eventually the flag.
-one take away form this challenge was that: when we can't use `cd`, we can use `ls` and `cat` to read the files .
+
+**One take away form this challenge was that: when we can't use `cd`, we can use `ls` and `cat` to read the files .**
 
 ### Flag
 `pwn.college{MGemnrg31p0V8dfn9q2OM78_4-8.dljM4QDL3kjM2czW}`
+
+## 10. Making Directories
+`mkdir` command is used to make directories
+In this challenge, we had to make `/tmp/pwn` directory and then create afile `college` in it. Then we had to type `/challenge/run` to find the flag.
+
+## Flag
+`pwn.college{0BShUNHYXKkn5g_rMb_-r4j3lmd.dFzM4QDL3kjM2czW}`
+
+## 11. Finding Files
+1. The `find` command takes optional arguments describing the search criteria and the search location.
+2. If you don't specify a search criteria, find matches every file.
+3. If you don't specify a search location, find uses the current working directory (.).
+
+In this challenge I used `find -name flag` and it listed all the files and directories which had thename "flag". Then one by one i used the `cat` command to find the flag 
+
+### Flag
+`pwn.college{UeC3kpxuMG4NoBsdyIciX4RAR1a.dJzM4QDL3kjM2czW}`
+
+## 12. Linking Files
+1. The `link` command is used when we want two programs to access the same data, but the programs expect that data to be in two different locations
+2. Link is of two types
+   a) Hard Links
+      i. A hard link is when you address your appartment using multiple addresses that all lead directly to the same place
+      ii. A hard link is an alternate address that indexes that data
+      iii. Accesses to the hard link and accesses to the original file are completely identical, in that they immediate yield the necessary data
+   
+   b) Soft/Symbolic Links
+      i.  A soft link is when you move appartments and have the postal service automatically forward your mail from your old             place to your new place.
+      ii. A soft/symbolic link, instead, contains the original file name. When you access the symbolic link, Linux will realize 
+         that it is a symbolic link, read the original file name, and then (typically) automatically access that file
+
+   Syntax for symbolic links:  ln -s _originalfilepath linkpath_ 
+
 
 
 
