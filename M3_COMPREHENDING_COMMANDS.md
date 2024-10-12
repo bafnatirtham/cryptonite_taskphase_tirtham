@@ -43,3 +43,39 @@ In this challenge we had to list the files in `/challenge` directory to find the
 ### Flag
 `pwn.college{EbSsneeW0XkHiELGybto5eN_WNc.dhjM4QDL3kjM2czW}`
 
+## 6. Touching Files
+the `touch` command allows us to create new blank files by _touching_ it.
+
+In this challenge, we had to use the `touch` command to create two new files and then run `/challenge/run` to get the file
+
+### Flag
+`pwn.college{0beTPxAGvCzk5IAd3LZf8b3o2yy.dBzM4QDL3kjM2czW}`
+
+## 7. Deleting Files
+the `rm` (remove) command is used to delete any unnecessary files from the directory
+In this challenge, we had to delete a file using the `rm` command and then run `/challenge/check` to get the flag
+
+### Flag
+`pwn.college{wixZj3K1CAcnaoPouQeudaVYj6f.dZTOwUDL3kjM2czW}`
+
+## 8. Hidden Files
+1. `ls` doesn't list all the files by default.
+2. Linux does not show files that start with a '.'
+3. To view these files we have to use `ls -a` command
+
+   In this challenge we had to use `ls -a` in the `/` directory. After finding the hidden flag file, i tried to use cd first but it was not working, Then i used `cat ./.flag-2884617699495` to access the flag
+
+### Flag
+`pwn.college{QbOYWIR4dswLBT-HFX-7qk_5-pU.dBTN4QDL3kjM2czW}`
+
+## 9. An Epic Filesystem Quest
+here we have to use the commands `cd`, `ls` and `cat` to find the hidden clues and eventually the flag.
+one take away form this challenge was that: when we can't use `cd`, we can use `ls` and `cat` to read the files .
+
+### Flag
+`pwn.college{MGemnrg31p0V8dfn9q2OM78_4-8.dljM4QDL3kjM2czW}`
+
+
+
+    
+
