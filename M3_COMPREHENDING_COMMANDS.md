@@ -97,6 +97,7 @@ In this challenge I used `find -name flag` and it listed all the files and direc
 1. The `link` command is used when we want two programs to access the same data, but the programs expect that data to be in two different locations
 2. Link is of two types
    a) Hard Links
+   
       i. A hard link is when you address your appartment using multiple addresses that all lead directly to the same place
    
       ii. A hard link is an alternate address that indexes that data
@@ -105,13 +106,17 @@ In this challenge I used `find -name flag` and it listed all the files and direc
    
    
    b) Soft/Symbolic Links
+   
       i.  A soft link is when you move appartments and have the postal service automatically forward your mail from your old             place to your new place.
    
       ii. A soft/symbolic link, instead, contains the original file name. When you access the symbolic link, Linux will realize 
          that it is a symbolic link, read the original file name, and then (typically) automatically access that file
    
 
-   Syntax for symbolic links:  ln -s _originalfilepath linkpath_ 
+   **Syntax for symbolic links:  ln -s _originalfilepath linkpath_**
+
+   In this challenge we have to first delete the `/home/hacker/not-the-flag` then link the flag again using `ln -s /flag /home/hacker/not-the-flag` and then use `challenge/catflag` to read the flag.
+   
 
 
 
