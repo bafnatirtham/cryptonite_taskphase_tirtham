@@ -98,13 +98,18 @@ In this challenge I used `find -name flag` and it listed all the files and direc
 2. Link is of two types
    a) Hard Links
       i. A hard link is when you address your appartment using multiple addresses that all lead directly to the same place
+   
       ii. A hard link is an alternate address that indexes that data
+   
       iii. Accesses to the hard link and accesses to the original file are completely identical, in that they immediate yield the necessary data
+   
    
    b) Soft/Symbolic Links
       i.  A soft link is when you move appartments and have the postal service automatically forward your mail from your old             place to your new place.
+   
       ii. A soft/symbolic link, instead, contains the original file name. When you access the symbolic link, Linux will realize 
          that it is a symbolic link, read the original file name, and then (typically) automatically access that file
+   
 
    Syntax for symbolic links:  ln -s _originalfilepath linkpath_ 
 
