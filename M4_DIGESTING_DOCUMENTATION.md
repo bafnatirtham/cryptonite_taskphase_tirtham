@@ -31,6 +31,35 @@ that argument was `--xxdazk NUM` where NUM =331
 ### Flag
 `pwn.college{A_xADU3PxSdTZPBaEIz3Yk1tYxr.dRTM4QDL3kjM2czW}`
 
+## 4. Searching Manuals
+We can search manuals with / and press N or n to go to previous or next result respectively
+we can also use ? instead of / to search backwards
+
+In this challenge we have to use the information of (3) and (4) to find the flag.
+After invoking `man challenge`, I used `/flag` to search for the flag and used **n** to go to the next result using wihc i got to know about the right argument `--uru`
+
+### Flag
+`pwn.college{gDLiwhgDZpVOhjsnmmCPnYG26hR.dVTM4QDL3kjM2czW}`
+
+## 5. Searching for Manuals
+This challenge involves a tricky version of using man i.e `man man` to find for manuals and then use existing pre learnt commands to find the hidden flag
+
+Commands used to find the flag
+`man man,
+man -k challenge/challenge,
+man ytcbldujbg,
+/,
+/challenge/challenge --ytcbld 462`
+
+### Flag
+`pwn.college{4YFy6t2cb9ldAuT-HjBbgTydtgz.dZTM4QDL3kjM2czW`
+
+## 6. Helpful Programs
+
+
+### Flag
+` pwn.college{oyG3n0Pb7BehGvzcQyU0hgmZCaX.ddjM4QDL3kjM2czW}`
+
 
 
 
