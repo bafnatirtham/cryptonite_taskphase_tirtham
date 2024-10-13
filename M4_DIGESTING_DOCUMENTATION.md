@@ -45,11 +45,13 @@ After invoking `man challenge`, I used `/flag` to search for the flag and used *
 This challenge involves a tricky version of using man i.e `man man` to find for manuals and then use existing pre learnt commands to find the hidden flag
 
 Commands used to find the flag
-`man man,
+```
+man man
 man -k challenge/challenge,
 man ytcbldujbg,
 /,
-/challenge/challenge --ytcbld 462`
+/challenge/challenge --ytcbld 462
+```
 
 ### Flag
 `pwn.college{4YFy6t2cb9ldAuT-HjBbgTydtgz.dZTM4QDL3kjM2czW`
@@ -57,7 +59,8 @@ man ytcbldujbg,
 ## 6. Helpful Programs
 This challenge involves using --help/-h/-? or sometimes -/? to find more information about the commands when the manual is not present
 We had to use -help command to find the secret number and pass it as an argument with -g argument
-`hacker@man~helpful-programs:~$ /challenge/challenge
+```
+hacker@man~helpful-programs:~$ /challenge/challenge
 No options specified.
 hacker@man~helpful-programs:~$ /challenge/challenge -help
 usage: a challenge to make you ask for help [-h] [--fortune] [-v] [-g GIVE_THE_FLAG] [-p]
@@ -65,8 +68,8 @@ a challenge to make you ask for help: error: argument -h/--help: ignored explici
 hacker@man~helpful-programs:~$ /challenge/challenge -p
 The secret value is: 307
 hacker@man~helpful-programs:~$ /challenge/challenge -g 307
-Correct usage! Your flag: pwn.college{oyG3n0Pb7BehGvzcQyU0hgmZCaX.ddjM4QDL3kjM2czW}`
-
+Correct usage! Your flag: pwn.college{oyG3n0Pb7BehGvzcQyU0hgmZCaX.ddjM4QDL3kjM2czW}
+```
 
 ### Flag
 ` pwn.college{oyG3n0Pb7BehGvzcQyU0hgmZCaX.ddjM4QDL3kjM2czW}`
