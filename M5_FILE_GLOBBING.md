@@ -29,10 +29,12 @@ Look: file_cc
 [] is a wildcard for some subset of potential characters, specified within the brackets. eg: [abc] will match files with char a/b/c
 
 Using this info, i got the flag for this challenge
+### Flag
 `pwn.college{ktFuZ-y9alIY5Rh6pRHIQ6iiF6-.dNjM4QDL3kjM2czW}`
 
 ## 4. Matching paths with []
 we can also match paths with [] by specifying the path and then putting the part which we have to glob
+### Flag
 `pwn.college{kz5Mm1goy4CciJG26IbeT7xTcK9.dRjM4QDL3kjM2czW}`
 
 ## 5. Mixing Globs
