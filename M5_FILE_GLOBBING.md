@@ -41,4 +41,12 @@ This challenge used all information from (1) to (4) to retrieve the flag
 ### Flag
 `pwn.college{oNHVAqppupcDhzrhBkkBkQYnLhK.dVjM4QDL3kjM2czW}`
 
+## 6. Exclusionary Globbing
+If we want to exclude some files that start with a particular letter, then we can use '!' or '^' after the square bracket to exclude all those files.
+In this challenge, I used the command `/challenge/files$ /challenge/run [!pwn]*` to retrieve the flag
+
+### Flag
+`pwn.college{AvZBtVGfZu-UpYayRptZ-oRiQjy.dZjM4QDL3kjM2czW}`
+
+
 
