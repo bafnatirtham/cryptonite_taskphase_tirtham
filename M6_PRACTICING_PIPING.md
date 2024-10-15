@@ -43,4 +43,38 @@ Every process in Linux has three initial, standard channels of communication:
 
    ### Flag
    ` pwn.college{cV2cmLqRFTYK1pqt94HSV70ydU2.ddjN1QDL3kjM2czW}`
+
+   ## 5. Redirecting Input
+   The `<` character is used to redirect the standard input to programs.\
+   In this challenge, we used `echo`,`<`and `>` collectively to redirect the flag
+
+   ### Flag
+   `pwn.college{8KP-4ONKMs-9_obanp4RJlB0BpE.dBzN1QDL3kjM2czW}`
+
+   ## 6. Grepping Stored Results
+   Here we used concept of grepping(searching) and io/op i.e < and > to find the flag
+
+   ### Flag
+   `pwn.college{8BOdTtfUnT4AmxuA4JEF4f2pNxQ.dhTM4QDL3kjM2czW}`
+
+   ## 7. Grepping Live Output
+   1. `|` is the pipe operator
+   2. We can avoid the need to store the results in a file by piping
+   3. Standard output from the command to the left of the pipe will be connected to (piped into) the standard input of the             command to the right of the pipe/
+       `/challenge/run | grep pwn.college`
+      
+      ### Flag
+      `pwn.college{8xrmk-Kt_iW8BH_prRbPpZy3bC8.dlTM4QDL3kjM2czW}`
+
+   ## 8. Grepping Errors
+   1. The | operator redirects only standard output to another program. There is no 2| form of the operator
+   2. For this, `>&` operator redirects a file descriptor to another file descriptor.
+   3. We can have a two-step process to grep through errors: first, we redirect standard error to standard output (2 >& 1) and then pipe the now-combined stderr and stdout as normal (|)
+  
+      `/challenge/run 2>&1 | grep pwn.college`
+
+      ### Flag
+      `pwn.college{wOMvDghtq4eBIlMVromOLnmDYUf.dVDM5QDL3kjM2czW}`
+      
+   
    
