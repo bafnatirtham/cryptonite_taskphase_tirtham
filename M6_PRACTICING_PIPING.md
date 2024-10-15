@@ -75,6 +75,19 @@ Every process in Linux has three initial, standard channels of communication:
 
       ### Flag
       `pwn.college{wOMvDghtq4eBIlMVromOLnmDYUf.dVDM5QDL3kjM2czW}`
+
+   ## 9. Duplicating piped data with tee
+   The tee command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line
+
+   Code:/
+   ```\
+   /challenge/pwn | tee pwnop | /challenge/college
+   /challenge/pwn --secret 4-WvrsrV | /challenge/college
+   ```
+
+   ### Flag
+   `pwn.college{4-WvrsrVaQEmJxhqn2VDVGTJ_zv.dFjM5QDL3kjM2czW}`
+   
       
    
    
