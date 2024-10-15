@@ -25,8 +25,8 @@ Look: file_cc
 ### Flag
 `pwn.college{smHYqeASljt2dTK1tQB9gBX-Ybg.dJjM4QDL3kjM2czW}`
 
-## 3. Matching with []
-[] is a wildcard for some subset of potential characters, specified within the brackets. eg: [abc] will match files with char a/b/c
+## 3. Matching with [ ]
+[ ] is a wildcard for some subset of potential characters, specified within the brackets. eg: [abc] will match files with char a/b/c
 
 Using this info, i got the flag for this challenge
 ### Flag
