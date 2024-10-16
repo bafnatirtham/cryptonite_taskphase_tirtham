@@ -1,4 +1,4 @@
-# PRACTICNG PIPING MODULE 6
+# PRACTICING PIPING MODULE 6
 This module will give us an overview on input and output redirection.
 Every process in Linux has three initial, standard channels of communication:
 1. `stdin` or Standard Input is the channel through which the process takes input
@@ -77,7 +77,7 @@ Every process in Linux has three initial, standard channels of communication:
       `pwn.college{wOMvDghtq4eBIlMVromOLnmDYUf.dVDM5QDL3kjM2czW}`
 
    ## 9. Duplicating piped data with tee
-   The tee command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line
+   The `tee` command, named after a "T-splitter" from plumbing pipes, duplicates data flowing through your pipes to any number of files provided on the command line
 
    Code:/
    ```\
@@ -87,7 +87,47 @@ Every process in Linux has three initial, standard channels of communication:
 
    ### Flag
    `pwn.college{4-WvrsrVaQEmJxhqn2VDVGTJ_zv.dFjM5QDL3kjM2czW}`
+
+   ## 10. Writing to multiple programs
+   1. The `tee` command is used to duplicate data to two files,  duplicate data to a file and a command, but what about duplicating to two commands
+   2. For this also we can use tee and this is known as "Process Substitution", because
+      _**Linux follows the philosophy that "everything is a file"**_
+
+      If you write an argument of `>(rev)`, bash will run the rev command (this command reads data from standard input, reverses its order, and writes it to standard output!), **but hook up its input to a temporary file_** that it will create. This isn't a real file, of course, it's what's called a named pipe
+
+    ###  For my learning purposes:
+```
+      hacker@dojo:~$ echo HACK | rev
+KCAH
+hacker@dojo:~$ echo HACK | tee >(rev)
+HACK
+KCAH
+```
+Above, the following sequence of events took place:
+
+1. bash started up the rev command, hooking a named pipe (presumably /dev/fd/63) to rev's standard input
+2. bash started up the tee command, hooking a pipe to its standard input, and replacing the first argument to tee with /dev/fd/63. tee never even saw the argument >(rev); the shell substituted it before launching tee
+3. bash used the echo builtin to print HACK into tee's standard input
+4. tee read HACK, wrote it to standard output, and then wrote it to /dev/fd/63 (which is connected to rev's stdin)
+5. rev read HACK from its standard input, reversed it, and wrote KCAH to standard output
+
+`/challenge/hack | tee >(/challenge/the) >(/challenge/planet)`
+ one imp thing was the use of brackets in specifying the paths, else it gives errors
+   ### Flag
+   `pwn.college{A1yf2VWxHlMkP01bl6Z3ShkzxW4.dBDO0UDL3kjM2czW}`
+
+   ## 11. Split piping stderr and stdout
+```
+echo hi | rev
+echo hi > >(rev)
+```
+Both of these statements are equivalent
+
+Command used to retrieve flag: `/challenge/hack 2> >(/challenge/the) 1> >(/challenge/planet)`\
+where stderr is redirected to 'the' and stdout is redirected to 'planet'
+
+   ### Flag
+   `pwn.college{UiXtc4LB_UlXRUfy9p7vqpG2T8U.dFDNwYDL3kjM2czW}`
    
-      
    
    
