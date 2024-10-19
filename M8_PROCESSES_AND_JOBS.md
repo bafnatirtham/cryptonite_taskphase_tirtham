@@ -48,3 +48,37 @@ We can use the `fg` command to resume the suspended processes and put it back in
 
 ### Flag
 `pwn.college{UERrJ6bu7yNCiyPlVmGk50SSCS7.dZDN4QDL3kjM2czW}`
+
+## 6. Backgrounding Processes
+The `fg` command is used to resume processes in the foreground\
+The `bg` command is used to resume processes in the background. This will allow the process to keep running, while giving you your shell back to invoke more commands in the meantime.
+
+We can also check the difference between suspended and background properties by enabling "stat" column using `ps -o user,pid,stat,cmd`
+1. T stands for suspended
+2. S stands for sleep (waiting for input)
+3. R stand for actively running
+4. + means process is in the foreground
+
+     In this challenge, we had to launch /challenge/run, suspend it, put it in the background using 'bg' and then launch /challenge/run again to get the flag
+
+     ### Flag
+     `pwn.college{4tK7ikAH9t3tMNNU-dUX7qi1v7y.ddDN4QDL3kjM2czW}`
+
+## 7. Foregrounding Processes
+Using `fg` we can also foreground a backgrounded process
+
+### Flag
+`pwn.college{o68fHSXkfU8_ub-kBE8MRZX3lWL.dhDN4QDL3kjM2czW}`
+
+## 8. Starting Backgrounding Processes
+We can put a command directly into the background without 'suspending' (Ctrl+Z) it first and then using 'bg'.\
+For this, we have to append "&" to the command we are entering\
+eg: `/challenge/run &` will directly start the process in the background.
+
+### Flag
+`pwn.college{8miaNvTYblEIlZE3M6694egTNa_.dlDN4QDL3kjM2czW}`
+
+## 9. Process Exit Codes
+Every shell command, including every program and every builtin, exits with an exit code when it finishes running and terminates, This can be used by the shell, or the user of the shell (that's you!) to check if the process succeeded in its functionality
+
+
