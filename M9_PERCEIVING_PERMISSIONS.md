@@ -53,5 +53,79 @@ In this challenge, the user was in a random group. We had to figure out this gro
 ### Flag
 `pwn.college{4XX1icF7ufh-dr38wZZNp92oknP.dJzNyUDL3kjM2czW}`
 
-## 4. 
-###
+## 4. Changing Permissions
+In the 10 character encoding of the permission,\
+the very first character stands for the file type;\
+the next three stand for the owning user, the next three for the owning group, and the last three for other access.
+
+Each character represent permission for a different type:
+1. `r` - user/group/other can read the file (or list the directory)
+2. `w` - user/group/other can modify the files (or create/delete files in the directory)
+3. `x` - user/group/other can execute the file as a program (or can enter the directory, e.g., using `cd`)
+4. `-` - nothing (or _cannot execute_)
+
+The `chmod` command is used to ***change the file permissions***\
+Syntax: `chmod [OPTIONS] MODE FILE *`\
+MODE can be specified in two ways: 
+1. as a modification of the existing permissions mode, or
+2. as a completely new mode to overwrite the old one.
+
+**Modifying an existing mode:**
+`chmod` allows you to tweak permissions with the mode format of `WHO+/-WHAT`
+1. WHO is:
+   1. user(u)
+   2. group(g)
+   3. other(o)
+2. WHAT is:
+   1. read(r)
+   2. write(w)
+   3. execute(x)
+3. (a) stands for all the modes, (+) stands for adding permissions, (-) stands for removing permissions\
+   eg: `a-rwx` removes all permissions for the user, group, and world
+
+   Using all this information, I changed the permissions of the /flag file to `a+rwx *` and then catted the /flag file to read the flag.
+
+   ### Flag
+   `pwn.college{Q5Cg_UviAg8f-wj2ISotF4sN8jA.dNzNyUDL3kjM2czW}`
+
+## 5. Executable Files
+In this challenhge we had to use all the previous information, to change the execution permissions and retrieve the flag i.e. \
+```
+chmod a+rwx /challenge/run
+/challenge/run
+```
+### Flag
+`pwn.college{UYvjiDN_GROyR-r8d3vnxZNhYuS.dJTM2QDL3kjM2czW}`
+
+## 6. Permission Tweaking Practice
+In this challenge, we had to use all the current knowledge of permissions and tweak it 8 times to get the flag
+### Flag
+`pwn.college{8vQ0vlbiWTmaDy2wRHMgZRbwNRj.dBTM2QDL3kjM2czW}`
+
+## 7. Permission Setting Practice
+In addition to adding and removing permissions, `chmod` can also simply set permissions altogether, overwriting the old ones. This is done by using = instead of - or +.\
+1. `chmod a=rwx` sets read, write, and executable permissions for the user, group, and world
+2. `chmod u=rw,g=r /challenge/pwn` will set the user permissions to read and write, and the group permissions to read-only
+3. `chmod u=rw,g=r,o=- /challenge/pwn` will set the user permissions to read and write, the group permissions to read-only, and the world permissions to nothing at all\
+   **We can zero out permissions with '-'**
+
+   ### Flag
+   `pwn.college{AIFmN8nHyP8dwHYc64BqeXRdYE3.dNTM5QDL3kjM2czW}`
+
+## 8. SUID
+There are many cases in which non-root users need elevated access to do certain system tasks. The system admin can't be there to give them the password every time a user wanted to do a task that only root/sudoers can do.\
+For this purpose, The **"Set User ID" (SUID)** permissions bit _allows the user to run a program as the owner of that program's file._\
+eg:
+```
+ls -l /usr/bin/sudo
+-rwsr-xr-x 1 root root 232416 Dec 1 11:45 /usr/bin/sudo
+```
+The s part in place of the executable bit means that the program is executable with SUID. It means that, regardless of what user runs the program (as long as they have executable permissions), the program will execute as the owner user.\
+`chmod u+s [program]` is used to set a file's SUID bit
+
+_Note: Giving the SUID bit to an executable owned by root can give attackers a possible attack vector to become root._
+
+In this challenge, we had to set SUID of `/challenge/getroot` using `chmod a+s` and retrieve the flag
+
+### Flag
+`pwn.college{oTiKWeHuySPZeNN5pF4SI9wSCNv.dNTM2QDL3kjM2czW}`
