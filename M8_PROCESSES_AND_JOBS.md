@@ -79,6 +79,11 @@ eg: `/challenge/run &` will directly start the process in the background.
 `pwn.college{8miaNvTYblEIlZE3M6694egTNa_.dlDN4QDL3kjM2czW}`
 
 ## 9. Process Exit Codes
-Every shell command, including every program and every builtin, exits with an exit code when it finishes running and terminates, This can be used by the shell, or the user of the shell (that's you!) to check if the process succeeded in its functionality
+1. Every shell command, including every program and every builtin, exits with an exit code when it finishes running and terminates, This can be used by the shell, or the user of the shell to check if the process succeeded in its functionality.
+2. You can access the exit code of the most recently-terminated command using the special ? variable. We need to prepend it with $ to read its value.
+3. commands that succeed typically return 0, commands that fail typically return a non-zero value, most commonly 1; sometimes an error code identifies a specific failure mode.
+
+   ### Flag
+   `pwn.college{o4n3_hc5lnL_41KDNqY_Tp6FAlN.dljN4UDL3kjM2czW}`
 
 
