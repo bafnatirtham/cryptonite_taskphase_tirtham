@@ -53,11 +53,12 @@ We can use the `fg` command to resume the suspended processes and put it back in
 The `fg` command is used to resume processes in the foreground\
 The `bg` command is used to resume processes in the background. This will allow the process to keep running, while giving you your shell back to invoke more commands in the meantime.
 
-We can also check the difference between suspended and background properties by enabling "stat" column using `ps -o user,pid,stat,cmd`
+We can also check the difference between suspended and background properties by enabling "stat" column using 
+`ps -o user,pid,stat,cmd`
 1. T stands for suspended
 2. S stands for sleep (waiting for input)
 3. R stand for actively running
-4. + means process is in the foreground
+4. '+' means process is in the foreground
 
      In this challenge, we had to launch /challenge/run, suspend it, put it in the background using 'bg' and then launch /challenge/run again to get the flag
 
