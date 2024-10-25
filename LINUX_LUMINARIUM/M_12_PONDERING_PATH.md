@@ -70,7 +70,7 @@ pwn.college{4TCaapwXvYQH3fkZAvfYIZogmlw.dZzNyUDL3kjM2czW}
 ## 4. Hijacking Commands
 
 In this challenge, /challenge/run will remove the flag using rm\
-but we can hijack this command by overriding this command with the cat command which will read the flag instead of removing the flag using rm i.e. rm will essentially cat the flag because we re[laced absolute path of rm with absolute path of cat.
+but we can hijack this command by overriding this command with the cat command which will read the flag instead of removing the flag using rm i.e. rm will essentially cat the flag because we replaced absolute path of rm with absolute path of cat.
 
 ```
 hacker@path~hijacking-commands:~$ ls
@@ -85,3 +85,10 @@ Trying to remove /flag...
 pwn.college{cfo2C8NdtGbO191PjRHoU1Yb3G1.ddzNyUDL3kjM2czW}
 hacker@path~hijacking-commands:~/solutions$
 ```
+
+# Summary
+1. There is a special shell variable, called PATH, that stores a bunch of directory paths in which the shell will search for programs corresponding to commands.
+2. If we blankout the PATH using `PATH=""` it wouldnt be able to find the inbuilt commands and programs related to its functioning.
+3. PATH stores a list of directories to find commands
+4. For non standard commands, If we want to launch useful scripts using their bare name, we need to add or replace directories in the PATH list.
+5. Absolute paths can be found using `which` command eg: `which cat` gives the absolute path of the cat command
