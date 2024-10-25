@@ -76,10 +76,12 @@ MODE can be specified in two ways:
    1. user(u)
    2. group(g)
    3. other(o)
+      
 2. WHAT is:
    1. read(r)
    2. write(w)
    3. execute(x)
+      
 3. (a) stands for all the modes, (+) stands for adding permissions, (-) stands for removing permissions\
    eg: `a-rwx` removes all permissions for the user, group, and world
 
@@ -129,3 +131,29 @@ In this challenge, we had to set SUID of `/challenge/getroot` using `chmod a+s` 
 
 ### Flag
 `pwn.college{oTiKWeHuySPZeNN5pF4SI9wSCNv.dNTM2QDL3kjM2czW}`
+
+# Summary
+1. We can access the permissions of a file/directory using `ls -l`.
+2. 1. The File Type\
+   The first character of each line represents the file type(d or -)
+   
+   2. The Permissions\
+   The next nine characters are the actual permissions of the file, further divided into 3-3-3.
+    i.e permissions of ("owner"), ("group"), (other users and other groups)
+
+   3. Ownership Information\
+   There are two columns: one that shows the user who owns the file and the other shows the group who owns the file.
+3.  The **change ownership** command `chown` is used to change the ownership of files i.e `chown [username] [file]`.\
+     Typically, `chown` can only be invoked by the root user.
+4. The `id` command is used to check what groups we are in.
+5. Group ownership can be changed with the `chgrp` (change group) command.
+6. Each character represent permission for a different type:
+      1. `r` - user/group/other can read the file (or list the directory)
+      2. `w` - user/group/other can modify the files (or create/delete files in the directory)
+      3. `x` - user/group/other can execute the file as a program (or can enter the directory, e.g., using `cd`)
+      4. `-` - nothing (or _cannot execute_)
+7. The `chmod` command is used to ***change the file permissions***\
+Syntax: `chmod [OPTIONS] MODE FILE *`\
+8.  **We can zero out permissions with '-'**
+9.  The **"Set User ID" (SUID)** permissions bit _allows the user to run a program as the owner of that program's file._
+10.  _Note: Giving the SUID bit to an executable owned by root can give attackers a possible attack vector to become root._
