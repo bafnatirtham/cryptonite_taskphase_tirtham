@@ -59,3 +59,17 @@ If you have the hashed value of the password, you can crack it! Even though /etc
    In this challenge, I used the command `sudo cat /flag` to access the flag as root user
    ### Flag
    `pwn.college{AzxXiuXcYVUcfmXmPrwCnly9gLW.dhTN0UDL3kjM2czW}`
+
+# Summary
+
+1. eg of a listed user: `root:x:0:0:root:/root:/bin/bash`
+2. Each line contains, separated by :'s; the username, an x as a placeholder for where the password used to be, the numerical user ID, the numerical default group ID, long-form user details, the home directory, and the default shell.
+3. 'nobody' user is used to ensure that a program runs without any special privileges
+4. `su` is a setuid binary. Because it has the SUID bit set, su runs as root. Running as root, it can start a root shell.
+5. We can give an argument to su to switch to another user instead of root.\
+   Syntax: `su [username]`
+6. When you input a password into su, it one-way-encrypts (hashes) it and compares the result against the stored value. If the result matches, su grants you access to the user
+7. `john ./[process]` is used to crack the hashed password.
+8. 'root' passwords are a pain to maintain, To address this `sudo` (superuser do) is used instead of `su`
+9.  Unlike su, which defaults to launching a shell as a specified user, sudo defaults to running a command as root
+10.  sudo relies on policies that it checks to determine the user's authorization run things as root.
