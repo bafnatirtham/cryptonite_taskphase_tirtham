@@ -51,5 +51,12 @@ Congratulations on your shell script execution!
 ### Flag
 `pwn.college{Q1w_dPhxSCkytmO5B0Ct1m13Nt5.dRzNyUDL3kjM2czW}`
 
+# Summary
+1. The easiest way to chain commands is ;. ';' separates commands in a similar way to how 'Enter' separates lines (It is basically like ending statements)
+2. When we combine many commands with `;`, the length can be very long. Therefore, to avoid this we can create a shell script with a '.sh' suffix and then run it as a file.
+3. We can execute by passing it as an argument to a new instance of our shell (bash).
+4. **_NOTE_**: Use > to write the command and >> to append and add to the command otherwise the commands in the .sh file get replaced
+5. Instead of using bash again and again to call the shell script, we can in turn, make the shell script file executable using the file permissions, using `chmod` and then directly executing `./x.sh` (relative path)
 
-   
+
+
