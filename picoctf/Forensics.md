@@ -3,7 +3,9 @@
 ## Challenge 1: tunn3l v1s10n
 
 ### A. Flag
-`picoCTF{qu1t3_a_v13w_2020`
+`picoCTF{qu1t3_a_v13w_2020}`
+![image](https://github.com/user-attachments/assets/ae855ed8-8565-4cf4-8a37-5383aa14f475)
+
 ### B. Approach
 1. First opened 'tunn3l v1s10n' in notepad only to find out that it is a list of file signatures as notepad couldnt read it and many parts had 'SP' written which meant space.
 2. Then, Opened the 'tunn3l v1s10n' file in a Hex Editor (https://hexed.it/) to check the contents of the file signature/ magic bytes
