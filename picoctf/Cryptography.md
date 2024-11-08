@@ -1,6 +1,6 @@
 # Cryptography
 
-## Challenge 1: miniRSA
+## Challenge 1: Mini RSA
 
 ### A. Flag
 `picoCTF{e_sh0u1d_b3_lArg3r_7adb35b1}`
@@ -73,4 +73,46 @@
 2. https://www.pythonpool.com/rsa-encryption-python/
 
 
+## Challenge 2: miniRSA
+
+### A. Flag
+`picoCTF{n33d_a_lArg3r_e_606ce004}`
+
+### B. Approach
+1. Using information from miniRSA challenge and learning about the working of RSA encryption from the references provided in the hints,
+2. I opened the cyphertext in notepad to find the values for N(=p*q), cyphertext (c) and integer 'e'
+3. Since e was very small (e=3), my first attack and intuitive thought on RSA decryption was to find the e th root of C
+4. Code:
+   ```
+   from gmpy2 import iroot
+
+   # Given values
+   ciphertext = 
+   e=3
+   # Compute the cube root of the ciphertext
+   m, exact = iroot(ciphertext, e)
+   
+   
+   if exact:
+       hex_representation = hex(m)[2:]  # Remove '0x' prefix
+       if len(hex_repn) % 2 != 0:
+           hex_repn = '0' + hex_repn  # Ensure even-length for proper byte conversion
+   
+       # Convert hexadecimal to ASCII
+       plaintext = bytes.fromhex(hex_repn).decode('utf-8', errors='ignore')
+   
+       print("Decrypted plaintext:", plaintext)
+   else:
+       print("Cube root was not exact. Decryption may not be correct.")
+   ```
+### C. Concepts Learnt 
+1. RSA
+2. Conversion of plaintext into hexadecimal format and then into ASCII (readable) format
+
+### D. Incorrect Methods
+none
+
+### References 
+1. https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+2. https://www.pythonpool.com/rsa-encryption-python/
    
