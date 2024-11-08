@@ -21,8 +21,15 @@ Using this logic, we can convert the output `jU5t_a_sna_3lpm18g947_u_4_m9r54f` i
 `ju5t_a_s1mpl3_an4gr4m_4_u_79958f`
 
 ### C. Concepts Learnt
-1. Basic reading and logic used by for loops
-2. String/charcater array manipulation to encrypt the given string
+1. Basic reading and logic used by for-loops
+2. String/character array manipulation to encrypt the given string
 3. Brushed up the concepts and use of indexes in array.
+
+### D. Mistakes
+No such mistakes in the logic for solving, just mistook l for 1 while changing the string.
+
+### E. References
+Previous knowledge of for loops and string manipulation
+
 
 
